@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stackly - Digital Services</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+   <nav class="navbar">
+    <div class="nav-container">
+
+        <!-- Logo -->
+        <a href="./index.html" class="logo">
+            <img src="assets/logoimg.webp" alt="Stackly Logo" class="logo-icon" style="width: 40px; height: 40px; object-fit: contain;">
+            <span class="logo-text">Stackly</span>
+        </a>
+
+        <!-- Mobile Toggle -->
+        <button class="mobile-toggle" onclick="toggleMobileMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <!-- Navigation Menu -->
+        <ul class="nav-menu">
+
+            <li class="dropdown">
+                <a class="dropdown-toggle">Home ▾</a>
+                <ul class="dropdown-menu">
+                   
+                    <li><a href="./home2.html">Home 2</a></li>
+                    
+                </ul>
+            </li>
+
+            <li><a href="./about.html">About Us</a></li>
+            <li><a href="./services.html">Services</a></li>
+            <li><a href="./blog.html">Blog</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+            <li><a href="./dashboard.html">Dashboard</a></li>
+
+            <li><a href="./login.html" class="nav-btn">Login</a></li>
+        </ul>
+
+    </div>
+</nav>
+
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="hero-title">Transform Your Business with Digital Excellence</h1>
+            <p class="hero-subtitle">We craft innovative digital solutions that drive growth and deliver exceptional results for forward-thinking businesses</p>
+            <div class="hero-buttons">
+                <a href="./services.html" class="btn btn-primary">Explore Services</a>
+                <a href="./contact.html" class="btn btn-secondary">Get Started</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Why Choose Stackly?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Fast Delivery</h3>
+                    <p>Quick turnaround times without compromising on quality</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💎</div>
+                    <h3>Premium Quality</h3>
+                    <p>High-end solutions that exceed industry standards</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Results Driven</h3>
+                    <p>Focus on measurable outcomes and ROI</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Secure & Reliable</h3>
+                    <p>Enterprise-grade security and 99.9% uptime</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Overview -->
+    <section class="services-overview">
+        <div class="container">
+            <h2 class="section-title">Our Core Services</h2>
+            <div class="services-grid">
+                <div class="service-item">
+                    <h3>Web Development</h3>
+                    <p>Custom websites and web applications built with cutting-edge technology</p>
+                </div>
+                <div class="service-item">
+                    <h3>Mobile Apps</h3>
+                    <p>Native and cross-platform mobile applications for iOS and Android</p>
+                </div>
+                <div class="service-item">
+                    <h3>UI/UX Design</h3>
+                    <p>Beautiful, intuitive interfaces that users love to interact with</p>
+                </div>
+                <div class="service-item">
+                    <h3>Digital Marketing</h3>
+                    <p>Comprehensive marketing strategies to grow your online presence</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3 class="stat-number">500+</h3>
+                    <p>Projects Delivered</p>
+                </div>
+                <div class="stat-item">
+                    <h3 class="stat-number">98%</h3>
+                    <p>Client Satisfaction</p>
+                </div>
+                <div class="stat-item">
+                    <h3 class="stat-number">50+</h3>
+                    <p>Team Members</p>
+                </div>
+                <div class="stat-item">
+                    <h3 class="stat-number">12+</h3>
+                    <p>Years Experience</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process">
+        <div class="container">
+            <h2 class="section-title">Our Process</h2>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Discovery</h3>
+                    <p>Understanding your business goals and requirements</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Strategy</h3>
+                    <p>Creating a comprehensive plan for success</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Development</h3>
+                    <p>Building your solution with precision and care</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Launch</h3>
+                    <p>Deploying and optimizing for maximum impact</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Our Clients Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Stackly transformed our online presence completely. Their team's expertise and dedication are unmatched."</p>
+                    <p class="testimonial-author">- Sarah Johnson, CEO at TechCorp</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Outstanding service and results. They delivered beyond our expectations and on time."</p>
+                    <p class="testimonial-author">- Michael Chen, Founder of StartupXYZ</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Working with Stackly was a game-changer for our business. Highly recommended!"</p>
+                    <p class="testimonial-author">- Emily Davis, Marketing Director</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Stack -->
+    <section class="tech-stack">
+        <div class="container">
+            <h2 class="section-title">Technologies We Master</h2>
+            <div class="tech-grid">
+                <div class="tech-item">React</div>
+                <div class="tech-item">Node.js</div>
+                <div class="tech-item">Python</div>
+                <div class="tech-item">MongoDB</div>
+                <div class="tech-item">AWS</div>
+                <div class="tech-item">Docker</div>
+                <div class="tech-item">Swift</div>
+                <div class="tech-item">Kotlin</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Preview -->
+    <section class="portfolio-preview">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <div class="portfolio-image1"></div>
+                    <h3>E-Commerce Platform</h3>
+                    <p>Complete online shopping solution with payment integration</p>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image2"></div>
+                    <h3>Healthcare App</h3>
+                    <p>Mobile application for patient management and appointments</p>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image3"></div>
+                    <h3>Financial Dashboard</h3>
+                    <p>Analytics platform for real-time financial insights</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industries Section -->
+    <section class="industries">
+        <div class="container">
+            <h2 class="section-title">Industries We Serve</h2>
+            <div class="industries-grid">
+                <div class="industry-card">Healthcare</div>
+                <div class="industry-card">Finance</div>
+                <div class="industry-card">E-Commerce</div>
+                <div class="industry-card">Education</div>
+                <div class="industry-card">Real Estate</div>
+                <div class="industry-card">Entertainment</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Start Your Project?</h2>
+            <p>Let's discuss how we can help transform your business with cutting-edge digital solutions</p>
+            <a href="./contact.html" class="btn btn-large">Get In Touch</a>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="partners">
+        <div class="container">
+            <h2 class="section-title">Trusted By Leading Brands</h2>
+            <div class="partners-grid">
+                <div class="partner-logo">Digital Edge Solutions</div>
+                <div class="partner-logo">Pixel Perfect</div>
+                <div class="partner-logo">Code Craft</div>
+                <div class="partner-logo">Web Wizard</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <img src="assets/logoimg.webp" alt="Stackly Logo" class="logo-icon" style="width: 40px; height: 40px; object-fit: contain;">
+                        <span class="logo-text">Stackly</span>
+                    </div>
+                    <p class="footer-desc">Empowering businesses through innovative digital solutions</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        
+                <li class="dropdown">
+                    <a href="./index.html" class="dropdown-toggle">Home</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="./home2.html">Home 2</a></li>
+                    </ul>
+                </li>
+
+                        <li><a href="./about.html">About Us</a></li>
+                        <li><a href="./services.html">Services</a></li>
+                        <li><a href="./blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <p>Email: hello@stackly.com</p>
+                    <p>Phone: +1 (555) 123-4567</p>
+                    <p>Address: 123 Evolve Studio,Karnataka ,Bengaluru</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="./404.html">Facebook</a>
+                        <a href="./404.html">Twitter</a>
+                        <a href="./404.html">LinkedIn</a>
+                        <a href="./404.html">Instagram</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Stackly. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./script.js"></script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+               <img src="assets/logoimg.webp" alt="Stackly Logo" class="logo-icon" style="width: 40px; height: 40px; object-fit: contain;">
+                <span class="logo-text">Stackly</span>
+            </div>
+            <button class="mobile-toggle" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                
+                <li class="dropdown">
+                    <a href="./index.html" class="dropdown-toggle">Home</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="./home2.html">Home 2</a></li>
+                    <li><a href="./dashboard.html">Dashboard</a></li></ul>
+                </li>
+
+                <li><a href="./about.html">About Us</a></li>
+                <li><a href="./services.html">Services</a></li>
+                <li><a href="./blog.html">Blog</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+                <li><a href="./login.html" class="nav-btn">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 404 Content -->
+    <section class="error-section">
+        <div class="container">
+            <div class="error-content">
+                <h1 class="error-code">404</h1>
+                <h2 class="error-title">Page Not Found</h2>
+                <p class="error-text">Oops! The page you're looking for doesn't exist or has been moved.</p>
+                <div class="error-actions">
+                    <a href="./index.html" class="btn btn-primary">Go Home</a>
+                    <a href="./contact.html" class="btn btn-secondary">Contact Support</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Helpful Links -->
+    <section class="helpful-links">
+        <div class="container">
+            <h2 class="section-title">Quick Links</h2>
+            <div class="links-grid">
+                <a href="./index.html" class="link-card">
+                    <h3>Home</h3>
+                    <p>Return to homepage</p>
+                </a>
+                <a href="./services.html" class="link-card">
+                    <h3>Services</h3>
+                    <p>View our services</p>
+                </a>
+                <a href="./about.html" class="link-card">
+                    <h3>About Us</h3>
+                    <p>Learn more about us</p>
+                </a>
+                <a href="./contact.html" class="link-card">
+                    <h3>Contact</h3>
+                    <p>Get in touch</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <script src="./script.js"></script>
+</body>
+</html>

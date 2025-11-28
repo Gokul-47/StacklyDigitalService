@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Stackly</title>
+    <link rel="stylesheet" href="./styles.css">
+    <style>
+        /* Auth Page Specific Styles */
+        .auth-page {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            padding-top: 80px;
+        }
+
+        .auth-container {
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .auth-box {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .auth-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .auth-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+        }
+
+        .auth-header h2 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: #1f2937;
+        }
+
+        .auth-header p {
+            color: #6b7280;
+            font-size: 0.95rem;
+        }
+
+        .auth-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #1f2937;
+            font-size: 0.9rem;
+        }
+
+        .form-group input {
+            padding: 0.875rem 1rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .password-wrapper {
+            position: relative;
+        }
+
+        .password-wrapper input {
+            width: 100%;
+            padding-right: 3rem;
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 0.75rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #6b7280;
+            font-size: 1.25rem;
+            padding: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .password-toggle:hover {
+            color: #2563eb;
+        }
+
+        .form-hint {
+            font-size: 0.8rem;
+            color: #6b7280;
+            margin-top: 0.25rem;
+        }
+
+        .auth-submit-btn {
+            margin-top: 0.5rem;
+        }
+
+        .auth-footer {
+            text-align: center;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .auth-footer p {
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+
+        .auth-link {
+            color: #2563eb;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .auth-link:hover {
+            text-decoration: underline;
+        }
+
+        .error-message {
+            background: #fee2e2;
+            color: #991b1b;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            font-size: 0.9rem;
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+   <nav class="navbar">
+    <div class="nav-container">
+
+        <!-- Logo -->
+        <a href="./index.html" class="logo">
+            <img src="assets/logoimg.webp" alt="Stackly Logo" class="logo-icon" style="width: 40px; height: 40px; object-fit: contain;">
+            <span class="logo-text">Stackly</span>
+        </a>
+
+        <!-- Mobile Toggle -->
+        <button class="mobile-toggle" onclick="toggleMobileMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <!-- Navigation Menu -->
+        <ul class="nav-menu">
+
+            <li class="dropdown">
+                <a class="dropdown-toggle">Home ▾</a>
+                <ul class="dropdown-menu">
+                   
+                    <li><a href="./home2.html">Home 2</a></li>
+                    
+                </ul>
+            </li>
+
+            <li><a href="./about.html">About Us</a></li>
+            <li><a href="./services.html">Services</a></li>
+            <li><a href="./blog.html">Blog</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+            <li><a href="./dashboard.html">Dashboard</a></li>
+
+            <li><a href="./login.html" class="nav-btn">Login</a></li>
+        </ul>
+
+    </div>
+</nav>
+    <!-- Auth Page -->
+    <div class="auth-page">
+        <div class="auth-container">
+            <div class="auth-box">
+                <div class="auth-header">
+                    <div class="auth-icon">👤</div>
+                    <h2>Create Account</h2>
+                    <p>Join Stackly today and start your journey</p>
+                </div>
+
+                <div id="error-message" class="error-message"></div>
+
+                <form class="auth-form" id="signup-form" onsubmit="handleSignup(event)">
+                    <div class="form-group">
+                        <label for="signup-name">Full Name</label>
+                        <input 
+                            type="text" 
+                            id="signup-name" 
+                            name="name" 
+                            placeholder="John Doe" 
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="signup-email">Email Address</label>
+                        <input 
+                            type="email" 
+                            id="signup-email" 
+                            name="email" 
+                            placeholder="john@example.com" 
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="signup-password">Password</label>
+                        <div class="password-wrapper">
+                            <input 
+                                type="password" 
+                                id="signup-password" 
+                                name="password" 
+                                placeholder="••••••••" 
+                                required
+                                minlength="6"
+                            >
+                            <button type="button" class="password-toggle" onclick="togglePassword('signup-password')">
+                                👁️
+                            </button>
+                        </div>
+                        <small class="form-hint">Minimum 6 characters</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="signup-confirm">Confirm Password</label>
+                        <div class="password-wrapper">
+                            <input 
+                                type="password" 
+                                id="signup-confirm" 
+                                name="confirm" 
+                                placeholder="••••••••" 
+                                required
+                            >
+                            <button type="button" class="password-toggle" onclick="togglePassword('signup-confirm')">
+                                👁️
+                            </button>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-full auth-submit-btn">
+                        Create Account
+                    </button>
+                </form>
+
+                <div class="auth-footer">
+                    <p>
+                        Already have an account? 
+                        <a href="./login.html" class="auth-link">Sign in here</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                       <img src="assets/logoimg.webp" alt="Stackly Logo" class="logo-icon" style="width: 40px; height: 40px; object-fit: contain;">
+                        <span class="logo-text">Stackly</span>
+                    </div>
+                    <p class="footer-desc">Empowering businesses through innovative digital solutions</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        
+                <li class="dropdown">
+                    <a href="./index.html" class="dropdown-toggle">Home</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="./home2.html">Home 2</a></li>
+                    </ul>
+                </li>
+
+                        <li><a href="./about.html">About Us</a></li>
+                        <li><a href="./services.html">Services</a></li>
+                        <li><a href="./contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <p>Email: hello@stackly.com</p>
+                    <p>Phone: +1 (555) 123-4567</p>
+                    <p>Address: 123 Evolve Studio,Karnataka ,Bengaluru</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#">Facebook</a>
+                        <a href="#">Twitter</a>
+                        <a href="#">LinkedIn</a>
+                        <a href="#">Instagram</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Stackly. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./script.js"></script>
+    <script>
+        // Password toggle function
+        function togglePassword(inputId) {
+            const input = document.getElementById(inputId);
+            if (input.type === 'password') {
+                input.type = 'text';
+            } else {
+                input.type = 'password';
+            }
+        }
+
+        // Handle signup form submission
+        function handleSignup(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('signup-name').value;
+            const email = document.getElementById('signup-email').value;
+            const password = document.getElementById('signup-password').value;
+            const confirm = document.getElementById('signup-confirm').value;
+            const errorDiv = document.getElementById('error-message');
+
+            // Clear previous errors
+            errorDiv.classList.remove('show');
+
+            // Validation
+            if (password !== confirm) {
+                errorDiv.textContent = 'Passwords do not match!';
+                errorDiv.classList.add('show');
+                return;
+            }
+
+            if (password.length < 6) {
+                errorDiv.textContent = 'Password must be at least 6 characters long!';
+                errorDiv.classList.add('show');
+                return;
+            }
+
+            // Store user data in localStorage
+            const user = {
+                name: name,
+                email: email,
+                loggedIn: true
+            };
+            localStorage.setItem('user', JSON.stringify(user));
+
+            // Show success message and redirect
+            alert(`Welcome ${name}! Your account has been created successfully.`);
+            window.location.href = './dashboard.html';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Stackly</title>
+    <link rel="stylesheet" href="./styles.css">
+    <style>
+        .dashboard-section {
+    padding: 40px;
+}
+
+.dashboard-title {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.analytics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.analytics-card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* --- Revenue Bar Chart --- */
+.bar-chart {
+    display: flex;
+    align-items: flex-end;
+    height: 180px;
+    gap: 10px;
+}
+
+.bar {
+    width: 15%;
+    background: #4a90e2;
+    border-radius: 6px 6px 0 0;
+    position: relative;
+}
+
+.bar::after {
+    content: attr(data-label);
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+}
+
+/* --- Project Distribution --- */
+.project-list {
+    list-style: none;
+    padding: 0;
+}
+
+.project-list li {
+    padding: 5px 0;
+    font-size: 16px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 8px;
+}
+
+.green { background: #4caf50; }
+.yellow { background: #ff9800; }
+.red { background: #f44336; }
+.blue { background: #2196f3; }
+
+/* --- Team Performance Progress Bars --- */
+.progress-box p {
+    margin: 8px 0 4px;
+}
+
+.progress {
+    width: 100%;
+    height: 10px;
+    background: #ddd;
+    border-radius: 10px;
+}
+
+.progress-fill {
+    height: 100%;
+    background: #4caf50;
+    border-radius: 10px;
+}
+
+/* --- Client Satisfaction Box --- */
+.rating-box {
+    text-align: center;
+}
+
+.rating-box h2 {
+    font-size: 32px;
+    margin: 0;
+}
+
+    </style>
+</head>
+<body class="dashboard-body">
+    <!-- Dashboard Navigation -->
+    <nav class="navbar">
+    <div class="nav-container">
+
+        <!-- Logo -->
+        <a href="./index.html" class="logo">
+            <img src="assets/logoimg.webp" alt="Stackly Logo" class="logo-icon" style="width: 40px; height: 40px; object-fit: contain;">
+            <span class="logo-text">Stackly</span>
+        </a>
+
+        <!-- Mobile Toggle -->
+        <button class="mobile-toggle" onclick="toggleMobileMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <!-- Navigation Menu -->
+        <ul class="nav-menu">
+
+            <li class="dropdown">
+                <a class="dropdown-toggle">Home ▾</a>
+                <ul class="dropdown-menu">
+                   
+                    <li><a href="./home2.html">Home 2</a></li>
+                    
+                </ul>
+            </li>
+
+            <li><a href="./about.html">About Us</a></li>
+            <li><a href="./services.html">Services</a></li>
+            <li><a href="./blog.html">Blog</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+            <li><a href="./dashboard.html">Dashboard</a></li>
+
+            <li><a href="./login.html" class="nav-btn">Login</a></li>
+        </ul>
+
+    </div>
+</nav>
+    <!-- Dashboard Layout -->
+    <div class="dashboard-layout">
+        <!-- Sidebar -->
+        <aside class="dashboard-sidebar">
+            <ul class="sidebar-menu">
+                <li><a href="#overview" class="active" onclick="showSection('overview')">Overview</a></li>
+                <li><a href="#projects" onclick="showSection('projects')">Projects</a></li>
+                <li><a href="#analytics" onclick="showSection('analytics')">Analytics</a></li>
+                <li><a href="#tasks" onclick="showSection('tasks')">Tasks</a></li>
+                <li><a href="#team" onclick="showSection('team')">Team</a></li>
+                <li><a href="#settings" onclick="showSection('settings')">Settings</a></li>
+            <li><a href="./dashboard.html">Dashboard</a></li></ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <!-- Overview Section -->
+            <section id="overview" class="dashboard-section active">
+                <h1 class="dashboard-title">Dashboard Overview</h1>
+                
+                <!-- Stats Cards -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Active Projects</h3>
+                        <p class="stat-number">12</p>
+                        <span class="stat-change positive">+3 this month</span>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Total Revenue</h3>
+                        <p class="stat-number">$245K</p>
+                        <span class="stat-change positive">+15% from last month</span>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Team Members</h3>
+                        <p class="stat-number">24</p>
+                        <span class="stat-change">No change</span>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Pending Tasks</h3>
+                        <p class="stat-number">38</p>
+                        <span class="stat-change negative">+5 new tasks</span>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="dashboard-card">
+                    <h2>Recent Activity</h2>
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <span class="activity-icon">✓</span>
+                            <div class="activity-content">
+                                <p><strong>Project Completed:</strong> Mobile App for HealthCare Inc.</p>
+                                <span class="activity-time">2 hours ago</span>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <span class="activity-icon">+</span>
+                            <div class="activity-content">
+                                <p><strong>New Team Member:</strong> Sarah Johnson joined as UI Designer</p>
+                                <span class="activity-time">5 hours ago</span>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <span class="activity-icon">→</span>
+                            <div class="activity-content">
+                                <p><strong>Task Updated:</strong> Website Redesign moved to In Progress</p>
+                                <span class="activity-time">1 day ago</span>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <span class="activity-icon">$</span>
+                            <div class="activity-content">
+                                <p><strong>Payment Received:</strong> $15,000 from TechCorp Ltd.</p>
+                                <span class="activity-time">2 days ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="dashboard-card">
+                    <h2>Quick Actions</h2>
+                    <div class="quick-actions">
+                        <button class="action-btn">Create New Project</button>
+                        <button class="action-btn">Add Team Member</button>
+                        <button class="action-btn">Generate Report</button>
+                        <button class="action-btn">Schedule Meeting</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects Section -->
+            <section id="projects" class="dashboard-section">
+                <h1 class="dashboard-title">Projects</h1>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3>E-Commerce Platform</h3>
+                            <span class="project-status active">Active</span>
+                        </div>
+                        <p>Building a full-featured e-commerce solution</p>
+                        <div class="project-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 75%"></div>
+                            </div>
+                            <span>75% Complete</span>
+                        </div>
+                        <div class="project-meta">
+                            <span>Due: Feb 28, 2025</span>
+                            <span>Team: 6 members</span>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3>Mobile Banking App</h3>
+                            <span class="project-status active">Active</span>
+                        </div>
+                        <p>iOS and Android banking application</p>
+                        <div class="project-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 45%"></div>
+                            </div>
+                            <span>45% Complete</span>
+                        </div>
+                        <div class="project-meta">
+                            <span>Due: Mar 15, 2025</span>
+                            <span>Team: 8 members</span>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3>CRM System</h3>
+                            <span class="project-status planning">Planning</span>
+                        </div>
+                        <p>Custom CRM for enterprise client</p>
+                        <div class="project-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 15%"></div>
+                            </div>
+                            <span>15% Complete</span>
+                        </div>
+                        <div class="project-meta">
+                            <span>Due: Apr 30, 2025</span>
+                            <span>Team: 5 members</span>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3>Healthcare Portal</h3>
+                            <span class="project-status completed">Completed</span>
+                        </div>
+                        <p>Patient management system</p>
+                        <div class="project-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 100%"></div>
+                            </div>
+                            <span>100% Complete</span>
+                        </div>
+                        <div class="project-meta">
+                            <span>Completed: Jan 20, 2025</span>
+                            <span>Team: 7 members</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Analytics Section -->
+           <section id="analytics" class="dashboard-section">
+    <h1 class="dashboard-title">Analytics</h1>
+
+    <div class="analytics-grid">
+
+        <!-- Revenue Trend -->
+        <div class="analytics-card">
+            <h3>Revenue Trend (Last 6 Months)</h3>
+            <div class="bar-chart">
+                <div class="bar" style="height: 40%;" data-label="Apr"></div>
+                <div class="bar" style="height: 55%;" data-label="May"></div>
+                <div class="bar" style="height: 60%;" data-label="Jun"></div>
+                <div class="bar" style="height: 70%;" data-label="Jul"></div>
+                <div class="bar" style="height: 85%;" data-label="Aug"></div>
+                <div class="bar" style="height: 95%;" data-label="Sep"></div>
+            </div>
+        </div>
+
+        <!-- Project Distribution -->
+        <div class="analytics-card">
+            <h3>Project Distribution</h3>
+            <ul class="project-list">
+                <li><span class="dot green"></span> Completed – 18 Projects</li>
+                <li><span class="dot yellow"></span> In Progress – 7 Projects</li>
+                <li><span class="dot red"></span> Delayed – 3 Projects</li>
+                <li><span class="dot blue"></span> Upcoming – 5 Projects</li>
+            </ul>
+        </div>
+
+        <!-- Team Performance -->
+        <div class="analytics-card">
+            <h3>Team Performance Score</h3>
+            <div class="progress-box">
+                <p>Development Team – 92%</p>
+                <div class="progress">
+                    <div class="progress-fill" style="width: 92%;"></div>
+                </div>
+
+                <p>Design Team – 81%</p>
+                <div class="progress">
+                    <div class="progress-fill" style="width: 81%;"></div>
+                </div>
+
+                <p>QA Team – 75%</p>
+                <div class="progress">
+                    <div class="progress-fill" style="width: 75%;"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Client Satisfaction -->
+        <div class="analytics-card">
+            <h3>Client Satisfaction</h3>
+            <div class="rating-box">
+                <h2>⭐ 4.8 / 5.0</h2>
+                <p>Based on 240 Reviews</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+            <!-- Tasks Section -->
+            <section id="tasks" class="dashboard-section">
+                <h1 class="dashboard-title">Tasks</h1>
+                <div class="tasks-container">
+                    <div class="task-column">
+                        <h3>To Do</h3>
+                        <div class="task-item">
+                            <h4>Design Review Meeting</h4>
+                            <p>Review UI designs with client</p>
+                            <span class="task-priority high">High Priority</span>
+                        </div>
+                        <div class="task-item">
+                            <h4>Update Documentation</h4>
+                            <p>API documentation needs update</p>
+                            <span class="task-priority medium">Medium Priority</span>
+                        </div>
+                    </div>
+                    <div class="task-column">
+                        <h3>In Progress</h3>
+                        <div class="task-item">
+                            <h4>Backend Development</h4>
+                            <p>Implementing payment gateway</p>
+                            <span class="task-priority high">High Priority</span>
+                        </div>
+                        <div class="task-item">
+                            <h4>Testing Phase</h4>
+                            <p>QA testing for mobile app</p>
+                            <span class="task-priority medium">Medium Priority</span>
+                        </div>
+                    </div>
+                    <div class="task-column">
+                        <h3>Completed</h3>
+                        <div class="task-item completed">
+                            <h4>Client Presentation</h4>
+                            <p>Presented project proposal</p>
+                            <span class="task-priority">Completed</span>
+                        </div>
+                        <div class="task-item completed">
+                            <h4>Database Migration</h4>
+                            <p>Migrated to new database</p>
+                            <span class="task-priority">Completed</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Team Section -->
+            <section id="team" class="dashboard-section">
+                <h1 class="dashboard-title">Team Members</h1>
+                <div class="team-grid">
+                    <div class="team-card">
+                        <div class="team-avatar1"></div>
+                        <h3>John Doe</h3>
+                        <p>Project Manager</p>
+                        <span class="team-status online">Online</span>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-avatar2"></div>
+                        <h3>Sarah Mitchell</h3>
+                        <p>Lead Developer</p>
+                        <span class="team-status online">Online</span>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-avatar3"></div>
+                        <h3>David Park</h3>
+                        <p>UI/UX Designer</p>
+                        <span class="team-status away">Away</span>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-avatar4"></div>
+                        <h3>Emily Rodriguez</h3>
+                        <p>Marketing Lead</p>
+                        <span class="team-status offline">Offline</span>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-avatar5"></div>
+                        <h3>Michael Johnson</h3>
+                        <p>Backend Developer</p>
+                        <span class="team-status online">Online</span>
+                    </div>
+                   
+                </div>
+            </section>
+
+            <!-- Settings Section -->
+            <section id="settings" class="dashboard-section">
+                <h1 class="dashboard-title">Settings</h1>
+                <div class="settings-container">
+                    <div class="settings-card">
+                        <h3>Profile Settings</h3>
+                        <form class="settings-form">
+                            <div class="form-group">
+                                <label>Full Name</label>
+                                <input type="text" value="Your Name">
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" value="Stackly@stackly.com">
+                            </div>
+                            <div class="form-group">
+                                <label>Phone</label>
+                                <input type="tel" value="+91 12345 67890">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                        </form>
+                    </div>
+                    <div class="settings-card">
+                        <h3>Notifications</h3>
+                        <div class="settings-options">
+                            <label class="settings-option">
+                                <input type="checkbox" checked>
+                                <span>Email Notifications</span>
+                            </label>
+                            <label class="settings-option">
+                                <input type="checkbox" checked>
+                                <span>Project Updates</span>
+                            </label>
+                            <label class="settings-option">
+                                <input type="checkbox">
+                                <span>Marketing Emails</span>
+                            </label>
+                            <label class="settings-option">
+                                <input type="checkbox" checked>
+                                <span>Team Messages</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="settings-card">
+                        <h3>Security</h3>
+                        <button class="btn btn-secondary"  onclick=" window.location.href = '404.html'">Change Password</button>
+                        <button class="btn btn-secondary"  onclick=" window.location.href = '404.html'">Enable 2FA</button>
+                        <button class="btn btn-secondary"  onclick=" window.location.href = '404.html'">View Login History</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>

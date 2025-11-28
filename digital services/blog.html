@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Stackly</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+    <div class="nav-container">
+
+        <!-- Logo -->
+        <a href="./index.html" class="logo">
+            <img src="assets/logoimg.webp" alt="Stackly Logo" class="logo-icon" style="width: 40px; height: 40px; object-fit: contain;">
+            <span class="logo-text">Stackly</span>
+        </a>
+
+        <!-- Mobile Toggle -->
+        <button class="mobile-toggle" onclick="toggleMobileMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <!-- Navigation Menu -->
+        <ul class="nav-menu">
+
+            <li class="dropdown">
+                <a class="dropdown-toggle">Home ▾</a>
+                <ul class="dropdown-menu">
+                   
+                    <li><a href="./home2.html">Home 2</a></li>
+                    
+                </ul>
+            </li>
+
+            <li><a href="./about.html">About Us</a></li>
+            <li><a href="./services.html">Services</a></li>
+            <li><a href="./blog.html">Blog</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+            <li><a href="./dashboard.html">Dashboard</a></li>
+
+            <li><a href="./login.html" class="nav-btn">Login</a></li>
+        </ul>
+
+    </div>
+</nav>
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Our Blog</h1>
+            <p>Insights, tutorials, and industry updates</p>
+        </div>
+    </section>
+
+    <!-- Featured Post -->
+    <section class="featured-post">
+        <div class="container">
+            <div class="featured-content">
+                <span class="post-tag">Featured</span>
+                <h2>The Future of Web Development in 2025</h2>
+                <p class="post-excerpt">Explore the emerging trends and technologies that are shaping the future of web development, from AI integration to progressive web apps.</p>
+                <div class="post-meta">
+                    <span>By Sarah Mitchell</span>
+                    <span>•</span>
+                    <span>January 15, 2025</span>
+                    <span>•</span>
+                    <span>8 min read</span>
+                </div>
+                <a href="404.html" class="btn btn-primary">Read More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Categories -->
+    <section class="blog-categories">
+        <div class="container">
+            <h2 class="section-title">Categories</h2>
+            <div class="categories-grid">
+                <button class="category-btn active" onclick="filterBlog('all')">All Posts</button>
+                <button class="category-btn" onclick="filterBlog('development')">Development</button>
+                <button class="category-btn" onclick="filterBlog('design')">Design</button>
+                <button class="category-btn" onclick="filterBlog('marketing')">Marketing</button>
+                <button class="category-btn" onclick="filterBlog('technology')">Technology</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Grid -->
+    <section class="blog-grid-section">
+        <div class="container">
+            <div class="blog-grid">
+                <article class="blog-card" data-category="development">
+                    <img src="assets/article1.jpg" class="blog-image">
+                    <div class="blog-content">
+                        <span class="category-label">Development</span>
+                        <h3>Building Scalable APIs with Node.js</h3>
+                        <p>Learn best practices for creating robust and scalable APIs that can handle millions of requests.</p>
+                        <div class="post-meta">
+                            <span>John Anderson</span>
+                            <span>•</span>
+                            <span>Jan 10, 2025</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="blog-card" data-category="design">
+                    <img src="assets/article2.jpg" class="blog-image">
+                    <div class="blog-content">
+                        <span class="category-label">Design</span>
+                        <h3>UI/UX Trends Dominating 2025</h3>
+                        <p>Discover the latest design trends that are revolutionizing user experiences across digital platforms.</p>
+                        <div class="post-meta">
+                            <span>David Park</span>
+                            <span>•</span>
+                            <span>Jan 8, 2025</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="blog-card" data-category="marketing">
+                    <img src="assets/article3.png" class="blog-image">
+                    <div class="blog-content">
+                        <span class="category-label">Marketing</span>
+                        <h3>SEO Strategies That Actually Work</h3>
+                        <p>Proven SEO techniques to boost your website's visibility and drive organic traffic.</p>
+                        <div class="post-meta">
+                            <span>Emily Rodriguez</span>
+                            <span>•</span>
+                            <span>Jan 5, 2025</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="blog-card" data-category="technology">
+                    <img src="assets/article4.jpg" class="blog-image">
+                    <div class="blog-content">
+                        <span class="category-label">Technology</span>
+                        <h3>AI Integration in Modern Applications</h3>
+                        <p>How artificial intelligence is transforming the way we build and interact with applications.</p>
+                        <div class="post-meta">
+                            <span>Sarah Mitchell</span>
+                            <span>•</span>
+                            <span>Jan 3, 2025</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="blog-card" data-category="development">
+                    <img src="assets/article5.webp" class="blog-image">
+                    <div class="blog-content">
+                        <span class="category-label">Development</span>
+                        <h3>Microservices Architecture Explained</h3>
+                        <p>Understanding the benefits and challenges of microservices architecture in modern applications.</p>
+                        <div class="post-meta">
+                            <span>John Anderson</span>
+                            <span>•</span>
+                            <span>Dec 28, 2024</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="blog-card" data-category="design">
+                    <img src="assets/article6.webp" class="blog-image">
+                    <div class="blog-content">
+                        <span class="category-label">Design</span>
+                        <h3>Mobile-First Design Principles</h3>
+                        <p>Essential principles for creating exceptional mobile user experiences.</p>
+                        <div class="post-meta">
+                            <span>David Park</span>
+                            <span>•</span>
+                            <span>Dec 25, 2024</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="blog-card" data-category="marketing">
+                    <img src="assets/article7.webp" class="blog-image">
+                    <div class="blog-content">
+                        <span class="category-label">Marketing</span>
+                        <h3>Content Marketing ROI: A Complete Guide</h3>
+                        <p>Measuring and maximizing the return on investment from your content marketing efforts.</p>
+                        <div class="post-meta">
+                            <span>Emily Rodriguez</span>
+                            <span>•</span>
+                            <span>Dec 22, 2024</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="blog-card" data-category="technology">
+                    <img src="assets/article8.jpeg" class="blog-image">
+                    <div class="blog-content">
+                        <span class="category-label">Technology</span>
+                        <h3>Cloud Security Best Practices</h3>
+                        <p>Protecting your cloud infrastructure with industry-leading security measures.</p>
+                        <div class="post-meta">
+                            <span>Sarah Mitchell</span>
+                            <span>•</span>
+                            <span>Dec 20, 2024</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="blog-card" data-category="development">
+                    <img src="assets/article9.webp" class="blog-image">
+                    <div class="blog-content">
+                        <span class="category-label">Development</span>
+                        <h3>GraphQL vs REST: Which to Choose?</h3>
+                        <p>A comprehensive comparison to help you decide the best API approach for your project.</p>
+                        <div class="post-meta">
+                            <span>John Anderson</span>
+                            <span>•</span>
+                            <span>Dec 18, 2024</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Signup -->
+    <section class="blog-newsletter">
+        <div class="container">
+            <h2>Subscribe to Our Newsletter</h2>
+            <p>Get the latest articles delivered straight to your inbox</p>
+            <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit" class="btn btn-primary">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Popular Tags -->
+    <section class="popular-tags">
+        <div class="container">
+            <h2 class="section-title">Popular Tags</h2>
+            <div class="tags-cloud">
+                <span class="tag">JavaScript</span>
+                <span class="tag">React</span>
+                <span class="tag">Node.js</span>
+                <span class="tag">Python</span>
+                <span class="tag">UI/UX</span>
+                <span class="tag">Cloud</span>
+                <span class="tag">DevOps</span>
+                <span class="tag">AI/ML</span>
+                <span class="tag">Mobile</span>
+                <span class="tag">Security</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Comments -->
+    <section class="recent-comments">
+        <div class="container">
+            <h2 class="section-title">Recent Discussions</h2>
+            <div class="comments-list">
+                <div class="comment-item">
+                    <p class="comment-text">"Great insights on microservices! We implemented this approach and saw immediate improvements."</p>
+                    <p class="comment-author">- Alex Johnson on Microservices Architecture</p>
+                </div>
+                <div class="comment-item">
+                    <p class="comment-text">"The SEO strategies shared here helped us rank #1 for our target keywords."</p>
+                    <p class="comment-author">- Maria Garcia on SEO Strategies</p>
+                </div>
+                <div class="comment-item">
+                    <p class="comment-text">"Excellent guide for beginners and experts alike. Very comprehensive!"</p>
+                    <p class="comment-author">- Thomas Lee on Building Scalable APIs</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Archive -->
+    <section class="blog-archive">
+        <div class="container">
+            <h2 class="section-title">Archive</h2>
+            <div class="archive-grid">
+                <div class="archive-item">
+                    <h4>January 2025</h4>
+                    <p>5 posts</p>
+                </div>
+                <div class="archive-item">
+                    <h4>December 2024</h4>
+                    <p>8 posts</p>
+                </div>
+                <div class="archive-item">
+                    <h4>November 2024</h4>
+                    <p>6 posts</p>
+                </div>
+                <div class="archive-item">
+                    <h4>October 2024</h4>
+                    <p>7 posts</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Authors Section -->
+    <section class="blog-authors">
+        <div class="container">
+            <h2 class="section-title">Our Writers</h2>
+            <div class="authors-grid">
+                <div class="author-card">
+                    <div class="author-photo1"></div>
+                    <h3>Sarah Mitchell</h3>
+                    <p>Tech Writer & Developer</p>
+                </div>
+                <div class="author-card">
+                    <div class="author-photo2"></div>
+                    <h3>John Anderson</h3>
+                    <p>Senior Software Engineer</p>
+                </div>
+                <div class="author-card">
+                    <div class="author-photo3"></div>
+                    <h3>David Park</h3>
+                    <p>UX/UI Specialist</p>
+                </div>
+                <div class="author-card">
+                    <div class="author-photo4"></div>
+                    <h3>Emily Rodriguez</h3>
+                    <p>Digital Marketing Expert</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources -->
+    <section class="blog-resources">
+        <div class="container">
+            <h2 class="section-title">Recommended Resources</h2>
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <h3>Free E-Book</h3>
+                    <p>"Complete Guide to Modern Web Development"</p>
+                    <a href="404.html" class="resource-link">Download</a>
+                </div>
+                <div class="resource-card">
+                    <h3>Video Course</h3>
+                    <p>"Building Production-Ready Applications"</p>
+                    <a href="404.html" class="resource-link">Watch Now</a>
+                </div>
+                <div class="resource-card">
+                    <h3>Podcast</h3>
+                    <p>"Tech Talks with Stackly Experts"</p>
+                    <a href="404.html" class="resource-link">Listen</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <img src="assets/logoimg.webp" alt="Stackly Logo" class="logo-icon" style="width: 40px; height: 40px; object-fit: contain;">
+                        <span class="logo-text">Stackly</span>
+                    </div>
+                    <p class="footer-desc">Empowering businesses through innovative digital solutions</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        
+                <li class="dropdown">
+                    <a href="./index.html" class="dropdown-toggle">Home</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="./home2.html">Home 2</a></li>
+                    </ul>
+                </li>
+
+                        <li><a href="./about.html">About Us</a></li>
+                        <li><a href="./services.html">Services</a></li>
+                        <li><a href="./blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <p>Email: hello@stackly.com</p>
+                    <p>Phone: +1 (555) 123-4567</p>
+                    <p>Address: 123 Evolve Studio,Karnataka ,Bengaluru</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="./404.html">Facebook</a>
+                        <a href="./404.html">Twitter</a>
+                        <a href="./404.html">LinkedIn</a>
+                        <a href="./404.html">Instagram</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Stackly. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./script.js"></script>
+</body>
+</html>
