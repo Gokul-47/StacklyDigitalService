@@ -1062,7 +1062,7 @@ section {
 
 .timeline-year {
     position: absolute;
-    left: -4rem;
+    left: -3rem;
     top: 0;
     font-weight: 700;
     color: var(--primary-color);
