@@ -323,3 +323,32 @@ document.addEventListener('submit', function(e) {
 });
 
 // Console welcome message
+
+//map functionality//
+document.addEventListener("DOMContentLoaded", () => {
+  const mapToggle = document.querySelector("[data-map-toggle]");
+  const mapClose = document.querySelector("[data-map-close]");
+  const mapModal = document.getElementById("mapModal");
+
+  if (mapToggle && mapModal) {
+    mapToggle.addEventListener("click", (e) => {
+      e.preventDefault();
+      mapModal.classList.add("active");
+    });
+  }
+
+  if (mapClose && mapModal) {
+    mapClose.addEventListener("click", () => {
+      mapModal.classList.remove("active");
+    });
+  }
+
+  // Close modal when clicking outside
+  if (mapModal) {
+    mapModal.addEventListener("click", (e) => {
+      if (e.target === mapModal) {
+        mapModal.classList.remove("active");
+      }
+    });
+  }
+});
